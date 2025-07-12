@@ -43,4 +43,10 @@ export class PricingComponent {
       });
     }
   }
+
+  removeSearchItem(id: number) {
+    if (id) {
+      this.cryptocurrenciesSearchedFor = this.cryptocurrenciesSearchedFor.filter((cryptocurrency) => cryptocurrency.id !== id);
+    }
+  }
 }

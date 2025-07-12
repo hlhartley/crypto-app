@@ -28,6 +28,7 @@
       <p *ngIf="cryptocurrenciesSearchedFor.length === 0">No results found</p>
       <li *ngFor="let cryptocurrency of cryptocurrenciesSearchedFor; index as i; trackBy: trackByFn">
         {{ cryptocurrency.name + '/' + cryptocurrency.symbol + ' - ' + (cryptocurrency.price | currency) }}
+        <span class="remove" title="remove" (click)="removeSearchItem(cryptocurrency.id)">[x]</span>
       </li>
     </div>
   </div>
