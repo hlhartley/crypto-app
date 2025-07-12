@@ -1,30 +1,21 @@
-import { Component, effect, inject } from '@angular/core';
-import { PricingService } from '../../utils/pricing.service';
-
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Cryptocurrency } from '../../models/models';
+import { CurrencyPipe } from '@angular/common';
 @Component({
   selector: 'app-pricing',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, CurrencyPipe],
   templateUrl: './pricing.component.html',
   styleUrl: './pricing.component.scss'
 })
 
 export class PricingComponent {
-  pricingData: any;
-  private pricingService = inject(PricingService);
-
+  @Input() cryptocurrencies: Cryptocurrency[] = [];
   constructor() {
-    effect(() => {
-      this.pricingData = this.pricingService.getPricing().subscribe({
-        next: response => {
-          if (response.success) {
-            this.pricingData = response.data;
-          }
-        },
-        error: err => {
-          console.log(err);
-        }
-      });
-    })
+  }
+
+  trackByFn(index: number, item: any): any {
+    return item.id;
   }
 }

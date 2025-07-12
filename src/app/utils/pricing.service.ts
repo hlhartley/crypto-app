@@ -10,8 +10,9 @@ export class PricingService {
 
   getPricing(): Observable<any> {
     const baseUrl = `https://api.tokenmetrics.com/v2/price`;
+    const tokenIds = [3375, 102, 664, 2359, 3388].join(',');
     const params = new HttpParams()
-      .set('token_id', 3375);
+      .set('token_id', tokenIds);
     const apiKey = 'tm-0286d1de-8a2b-4614-b6fa-0b54ff84a3c0';
     const options = {
       method: 'GET',

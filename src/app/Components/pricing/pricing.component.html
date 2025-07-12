@@ -1,1 +1,4 @@
-<p>pricing works!</p>
+<h2>Top Prices</h2>
+<li *ngFor="let cryptocurrency of cryptocurrencies; index as i; trackBy: trackByFn">
+  {{ cryptocurrency.name + '/' + cryptocurrency.symbol + ' - ' + (cryptocurrency.price | currency) }}
+</li>
