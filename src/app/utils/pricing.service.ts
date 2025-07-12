@@ -8,11 +8,10 @@ import { Observable } from 'rxjs';
 export class PricingService {
   private http = inject(HttpClient);
 
-  getPricing(): Observable<any> {
+  getPricing(tokenIds: Array<number>): Observable<any> {
     const baseUrl = `https://api.tokenmetrics.com/v2/price`;
-    const tokenIds = [3375, 102, 664, 2359, 3388].join(',');
     const params = new HttpParams()
-      .set('token_id', tokenIds);
+      .set('token_id', tokenIds.join(','));
     const apiKey = 'tm-0286d1de-8a2b-4614-b6fa-0b54ff84a3c0';
     const options = {
       method: 'GET',
