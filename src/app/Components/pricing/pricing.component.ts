@@ -25,7 +25,8 @@ export class PricingComponent {
     return item.id;
   }
 
-  findPrice() {
+  findPrice(e: Event) {
+    e.preventDefault();
     if (this.tokenId) {
       this.pricingService.getPricing([this.tokenId]).subscribe({
         next: response => {

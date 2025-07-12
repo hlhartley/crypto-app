@@ -1,1 +1,8 @@
-<p>chatbot works!</p>
+<input
+  [(ngModel)]="userQuestion"
+/>
+<button
+  (click)="fetchResponse($event)"
+>
+  Submit
+</button>

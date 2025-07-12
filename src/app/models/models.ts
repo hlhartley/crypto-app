@@ -11,3 +11,11 @@ export class Cryptocurrency {
     this.symbol = obj.TOKEN_SYMBOL;
   }
 }
+
+export class UserMessage {
+  user: string;
+
+  constructor(question: string) {
+    this.user = question;
+  }
+}
